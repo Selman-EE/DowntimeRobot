@@ -1,0 +1,94 @@
+﻿@model IEnumerable<DowntimeRobot.Entity.Entity.AppErrorLog>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<header class="page-header">
+    <h2>Logs</h2>
+</header>
+
+<!-- start: page -->
+<div class="row">
+    <div class="col">
+        <section class="card">
+            <header class="card-header">
+                <div class="card-actions">
+                </div>
+                <h2 class="card-title">UI Error Log</h2>
+            </header>
+            <div class="card-body">
+                <table class="table table-bordered table-striped mb-0" id="datatable-default">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.DateOfInsert)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Controller)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Action)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Browser)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IpAddress)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.UserId)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.IsMobileBrowser)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Count() > 0)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr id="@item.Id">
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DateOfInsert)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Controller)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Action)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Browser)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IpAddress)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.UserId)
+                                    </td>
+                                    <td>
+                                        @(item.IsMobileBrowser ? "Yes" : "No")
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("Detail","AppErrorLog", new { id = item.Id })"><i class="fa fa-tasks" style="font-size: large;"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                @DowntimeRobot.Service.BLL.Service.MessageService.NotRecord
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</div>

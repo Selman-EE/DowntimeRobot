@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DowntimeRobot.Admin", "DowntimeRobot.Admin\DowntimeRobot.Admin.csproj", "{B69C34D4-7723-4320-8ABD-4BCB8FE974BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DowntimeRobot.Admin.Tests", "DowntimeRobot.Admin.Tests\DowntimeRobot.Admin.Tests.csproj", "{D7A7564D-57DE-48B3-B76D-9A7ED3288E95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DowntimeRobot.Entity", "DowntimeRobot.Entity\DowntimeRobot.Entity.csproj", "{782E7309-28D7-4BF9-A4A8-32FB8D0CFC1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DowntimeRobot.Service", "DowntimeRobot.Service\DowntimeRobot.Service.csproj", "{4F8E5E3D-675A-43C9-8C49-BBCFCA834CDB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DowntimeRobot.JobScheduler", "DowntimeRobot.JobScheduler\DowntimeRobot.JobScheduler.csproj", "{423DB450-B56D-4672-A060-AA87DD0C7493}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DowntimeRobot.Api", "DowntimeRobot.Api\DowntimeRobot.Api.csproj", "{0AA8DEE2-D87C-463A-A492-C642FFB11406}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B69C34D4-7723-4320-8ABD-4BCB8FE974BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B69C34D4-7723-4320-8ABD-4BCB8FE974BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B69C34D4-7723-4320-8ABD-4BCB8FE974BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B69C34D4-7723-4320-8ABD-4BCB8FE974BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7A7564D-57DE-48B3-B76D-9A7ED3288E95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7A7564D-57DE-48B3-B76D-9A7ED3288E95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7A7564D-57DE-48B3-B76D-9A7ED3288E95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7A7564D-57DE-48B3-B76D-9A7ED3288E95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{782E7309-28D7-4BF9-A4A8-32FB8D0CFC1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{782E7309-28D7-4BF9-A4A8-32FB8D0CFC1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{782E7309-28D7-4BF9-A4A8-32FB8D0CFC1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{782E7309-28D7-4BF9-A4A8-32FB8D0CFC1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F8E5E3D-675A-43C9-8C49-BBCFCA834CDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F8E5E3D-675A-43C9-8C49-BBCFCA834CDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F8E5E3D-675A-43C9-8C49-BBCFCA834CDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F8E5E3D-675A-43C9-8C49-BBCFCA834CDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{423DB450-B56D-4672-A060-AA87DD0C7493}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{423DB450-B56D-4672-A060-AA87DD0C7493}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{423DB450-B56D-4672-A060-AA87DD0C7493}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{423DB450-B56D-4672-A060-AA87DD0C7493}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AA8DEE2-D87C-463A-A492-C642FFB11406}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AA8DEE2-D87C-463A-A492-C642FFB11406}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AA8DEE2-D87C-463A-A492-C642FFB11406}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AA8DEE2-D87C-463A-A492-C642FFB11406}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6A865066-630F-46C4-8799-5A23D1198532}
+	EndGlobalSection
+EndGlobal

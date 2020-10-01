@@ -1,0 +1,10 @@
+﻿{
+  "profiles": {
+    "DowntimeRobot.JobScheduler": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

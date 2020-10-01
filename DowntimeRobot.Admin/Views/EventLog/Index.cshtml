@@ -1,0 +1,136 @@
+﻿@model IEnumerable<DowntimeRobot.Entity.Entity.EventLog>
+
+@{
+    ViewBag.Title = "EventLogs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<header class="page-header">
+    <h2>EventLogs</h2>
+</header>
+
+<!-- start: page -->
+<div class="row">
+    <div class="col">
+        <section class="card">
+            <header class="card-header">
+                <div class="col-xs-6 col-lg-6 pull-lg-right">
+                    <div style="float:right;">
+                        <span>PROCESS RESULT</span>
+                        <select id="process_status">
+                            <option value="" selected>ALL</option>
+                            <option value="0">FAILED</option>
+                            <option value="1">SUCCESS</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h2 class="card-title">EventLog</h2>
+            </header>
+            <div class="card-body">
+                <table class="table table-bordered table-striped mb-0" id="datatable_customize">
+                    <thead>
+                        <tr>
+                            <th>UserFullName</th>
+                            <th>UserEmailAddress</th>
+                            <th>App Code and Name</th>
+                            <th>App Url</th>
+                            <th>HttpStatusCode</th>
+                            <th>Status</th>
+                            <th>DateOfInsert</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @*@if (Model.Count() > 0)
+                            {
+                                foreach (var item in Model)
+                                {
+                                    var httpStatusCodeDesc = (HttpStatusCode)item.HttpStatusCode;
+
+                                    <tr id="@item.Id">
+                                        <td>@item.UserFullName</td>
+                                        <td>@item.UserEmailAddress</td>
+                                        <td>@($"{item.AppCode} - {item.AppName}")</td>
+                                        <td><a href="@item.AppUrl" target="_blank">@item.AppUrl</a></td>
+                                        <td>@($"{item.HttpStatusCode} - {httpStatusCodeDesc.ToString()}")</td>
+                                        <td>@(item.Status ? "Success" : "Failed") </td>
+                                        <td>@(item.DateOfInsert.ToString("dd.MM.yyyy hh:mm"))</td>
+                                    </tr>
+                                }
+                            }*@
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+@section Styles
+{
+    <link rel="stylesheet" href="/Asset/vendor/datatables/media/css/dataTables.bootstrap4.css">
+}
+
+@section Scripts
+{
+    <script charset="UTF-8" type="text/javascript">
+        //page load
+        $(document).ready(function () {
+            //
+            var $table = $('#datatable_customize');
+            $table.DataTable({
+                //"language": {
+                //    "processing": "Loading...",
+                //    "info": "",
+                //    "zeroRecords": "No Records"
+                //},
+                //"ordering": false,
+                "language": {
+                    "search": '<i class="fa fa-search"></i>',
+                    "searchPlaceholder": "Name,Email Address ,App Url ,App Name"
+                },
+                "searching": true,
+                "bLengthChange": false,
+                "iDisplayLength": 25,
+                "order": [1, "desc"],
+                "columnDefs": [
+                    { "targets": [0], "orderable": true, },
+                    { targets: '_all', orderable: false },
+                    {
+                        targets: [3], data: null,
+                        render: function (data, type, full) {
+                            //
+                            var url = full[3];
+                            var html = '<a href="' + url + '" target="_blank" >' + url + '</a>';
+                            return html;
+                        }
+                    }
+                ],
+                "processing": true,
+                "serverSide": true,
+                "ajax": {
+                    "url": "/EventLog/DataList",
+                    "type": "POST",
+                    "data": function (d) {                        
+                        //console.log(d);
+                        var param = {};
+                        param.StartIndex = d.start;
+                        param.DisplayLength = d.length;
+                        param.SearchValue = d.search.value;
+                        param.JobStatus = $('#process_status').val();
+                        var index = d.columns[d.order[0].column].data;
+                        var propertyName = $('#datatable_customize thead th').eq(index).text();
+                        param.SortColumn = propertyName + ' ' + d.order[0].dir;
+                        return param;
+                    }
+                },
+            });
+            //
+
+            $('#process_status').change(function (e) {
+                $table.DataTable().ajax.reload();
+            });
+        });
+
+    </script>
+}

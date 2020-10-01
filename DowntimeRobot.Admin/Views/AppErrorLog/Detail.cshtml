@@ -1,0 +1,97 @@
+﻿@model DowntimeRobot.Entity.Entity.AppErrorLog
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h4>AppErrorLog</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfInsert)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfInsert)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Controller)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Controller)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Action)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Action)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestUrl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExceptionMessage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExceptionMessage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StackTrace)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StackTrace)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Browser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Browser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IpAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IpAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IsMobileBrowser)
+        </dt>
+
+        <dd>
+            @(Model.IsMobileBrowser ? "Yes" : "No")
+        </dd>
+    </dl>
+</div>
+<p>    
+    @Html.ActionLink("Back to List", "Index")
+</p>

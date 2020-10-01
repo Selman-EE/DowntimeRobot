@@ -1,0 +1,71 @@
+﻿@model IEnumerable<DowntimeRobot.Entity.Entity.Job>
+
+@{
+    ViewBag.Title = "Jobs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<header class="page-header">
+    <h2>Jobs</h2>
+</header>
+
+<!-- start: page -->
+<div class="row">
+    <div class="col">
+        <section class="card">
+            <header class="card-header">
+                <div class="card-actions">
+                    <a class="buttoncolor" href="@Url.Action("Create","Job")">
+                        Add Job&nbsp;<i class="fa fa-plus"></i>
+                    </a>
+                </div>
+
+                <h2 class="card-title">Jobs</h2>
+            </header>
+            <div class="card-body">
+                <table class="table table-bordered table-striped mb-0" id="datatable-default">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Repeat</th>
+                            <th>Status</th>
+                            <th>ReqMaxLimit</th>
+                            <th>App Info</th>
+                            <th>App Url</th>
+                            <th>PlannedDate</th>
+                            <th>InsertDate</th>
+                            <th>UpdateDate</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Count() > 0)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr id="@item.Id">
+                                    <td>@($"{(DowntimeRobot.Service.Enums.MonitoringRangeType)item.RangeType}")</td>
+                                    <td>@item.RangeValue</td>
+                                    <td>@(item.Status ? "Active" : "Passive")</td>
+                                    <td>@item.ReqMaxLimit</td>
+                                    <td>@($"{item.Application.Code} - {item.Application.Name}")</td>
+                                    <td><a href="@item.Application.Url" target="_blank">@item.Application.Name</a></td>
+                                    <td>@(item.StartDate.ToString("dd.MM.yyyy hh:mm"))</td>
+                                    <td>@(item.DateOfInsert.ToString("dd.MM.yyyy hh:mm"))</td>
+                                    <td>@(item.DateOfUpdate?.ToString("dd.MM.yyyy") ?? "")</td>
+                                    <td class="table-actions">
+                                        @*<a href="@Url.Action("Edit","Job", new { id = item.Id })"><i class="fa fa-edit" style="font-size: large;"></i></a> &nbsp;*@
+                                        <a href="#" onclick="deleteEntity('@item.Id','@Url.Action("Delete","Job")')" class="on-default remove-row"><i class="fa fa-trash" style="font-size: large;"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</div>
+
+
+<!-- end: page -->
